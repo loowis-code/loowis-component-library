@@ -1,46 +1,46 @@
 {
     "name": "loowis-component-library",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "description": "Component library used for my personal websites",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
-      "build": "tsc",
-      "prepublishOnly": "npm run build",
-      "storybook": "storybook dev -p 6006",
-      "build-storybook": "storybook build"
+        "build": "tsup",
+        "prepublishOnly": "npm run build",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/loowis-code/loowis-component-library.git"
+        "type": "git",
+        "url": "git+https://github.com/loowis-code/loowis-component-library.git"
     },
     "author": "Lewis Inches",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/loowis-code/loowis-component-library/issues"
+        "url": "https://github.com/loowis-code/loowis-component-library/issues"
     },
     "homepage": "https://github.com/loowis-code/loowis-component-library#readme",
     "files": [
-      "dist",
-      "README.md"
+        "dist",
+        "README.md"
     ],
     "peerDependencies": {
-      "react": ">=18.0.0",
-      "react-dom": ">=18.0.0",
-      "next": ">=14.0.0"
+        "next": ">=14.0.0",
+        "react": ">=18.0.0",
+        "react-dom": ">=18.0.0"
     },
     "devDependencies": {
-      "@storybook/addon-essentials": "^8.6.3",
-      "@storybook/addon-onboarding": "^8.6.3",
-      "@storybook/blocks": "^8.6.3",
-      "@storybook/nextjs": "^8.6.3",
-      "@storybook/react": "^8.6.3",
-      "@storybook/test": "^8.6.3",
-      "@types/css-modules": "^1.0.5",
-      "@types/react": "^19.0.10",
-      "@types/react-dom": "^19.0.4",
-      "storybook": "^8.6.3",
-      "typescript": "^5.8.2"
+        "@storybook/addon-essentials": "^8.6.3",
+        "@storybook/addon-onboarding": "^8.6.3",
+        "@storybook/blocks": "^8.6.3",
+        "@storybook/nextjs": "^8.6.3",
+        "@storybook/react": "^8.6.3",
+        "@storybook/test": "^8.6.3",
+        "@types/css-modules": "^1.0.5",
+        "@types/react": "^19.0.10",
+        "@types/react-dom": "^19.0.4",
+        "storybook": "^8.6.3",
+        "tsup": "^8.4.0",
+        "typescript": "^5.8.2"
     }
-  }
-  
+}
