@@ -1,0 +1,60 @@
+name: Publish Package to npm
+
+# workflow triggered when release is published
+on:
+  release:
+    types: [published]
+
+# allows workflow to update version in package.json
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout code on main branch
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.repository.default_branch }}
+
+      # setup node
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      # install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # run tests
+    #   - name: Run tests
+    #     run: npm test
+
+      # update package.json with release tag - defined in the release event
+      - name: Update package.json with release tag
+        run: |
+          TAG="${{ github.event.release.tag_name }}"
+          echo "Updating package.json version to $TAG"
+          npm version "$TAG" --no-git-tag-version
+          
+      # push updated packge.json to main branch
+      - name: Commit and push version update
+        run: |
+          TAG="${{ github.event.release.tag_name }}"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add package.json package-lock.json
+          git commit -m "Update package.json to version $TAG"
+          git push origin ${{ github.event.repository.default_branch }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # publish to npm
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
