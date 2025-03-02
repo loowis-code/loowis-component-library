@@ -44,7 +44,6 @@
     color: whitesmoke;
 }
 
-
 .navTabs {
     display: flex;
     align-items: center;
@@ -71,7 +70,7 @@
     animation: 0.5s shiver;
     text-decoration: none;
     color: black;
-    box-shadow: 0.25rem 0.25rem #d95d5d;
+    box-shadow: 0.25rem 0.25rem var(--navTabBoxShadowHover);
 }
 
 @keyframes shiver {

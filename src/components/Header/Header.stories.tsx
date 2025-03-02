@@ -10,4 +10,16 @@ export default meta;
 
 type Story = StoryObj<typeof Header>;
 
-export const Default: Story = {};
+export const photographyWebsite: Story = {
+    args: {
+        navTabs: ['ALL IMAGES', 'COLLECTIONS', 'IMAGE MAP'],
+        navLinks: ['/all-images', '/collections', '/image-map'],
+    }
+};
+
+export const portfolioWebsite: Story = {
+    args: {
+        navTabs: ['HOME', 'ABOUT ME', 'PROJECTS'],
+        navLinks: ['', '#about-me', '#image-map'],
+    }
+};

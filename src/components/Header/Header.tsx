@@ -2,7 +2,12 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import './global.css';
 
-export default function Header() {
+type HeaderProps = {
+    navTabs: string[];
+    navLinks: string[];
+};
+
+export default function Header(props: HeaderProps) {
     useEffect(() => {
         let name = document.getElementById('name');
         if (!name) return;
@@ -11,6 +16,11 @@ export default function Header() {
         letters.forEach((letter, index) => {
             (letter as HTMLElement).style.backgroundColor = colors[index];
         });
+
+        let navTabs = document.getElementsByClassName('navTab');
+        for (let i = 0; i < navTabs.length; i++) {
+            (navTabs[i] as HTMLElement).style.setProperty('--navTabBoxShadowHover', colors[i]);
+        }
     }, []); 
 
     return (
@@ -23,10 +33,11 @@ export default function Header() {
                 <Link className='letter' href='/'>I</Link>
                 <Link className='letter' href='/'>S</Link>
             </h1>
+
             <nav className='navTabs'>
-                <Link href='/all-images' className='navTab'>ALL IMAGES</Link>
-                <Link href='/collections' className='navTab'>COLLECTIONS</Link>
-                <Link href='/image-map' className='navTab'>IMAGE MAP</Link>
+                {props.navTabs.map((tab, index) => (
+                    <Link key={index} href={props.navLinks[index]} className='navTab'>{tab}</Link>
+                ))}
             </nav>
         </div>
     );
