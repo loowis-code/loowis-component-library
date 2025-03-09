@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import './global.css';
+import Button from '../Button';
 
 type HeaderProps = {
     navTabs: string[];
@@ -36,7 +37,7 @@ export default function Header(props: HeaderProps) {
 
             <nav className='navTabs'>
                 {props.navTabs.map((tab, index) => (
-                    <Link key={index} href={props.navLinks[index]} className='navTab' data-testid='navTab'>{tab}</Link>
+                    <Button key={index} buttonLink={props.navLinks[index]} buttonText={tab}/>
                 ))}
             </nav>
         </div>

@@ -1,6 +1,6 @@
 @font-face {
     font-family: josefin-regular;
-    src: url("./josefin/JosefinSans-Regular.ttf");
+    src: url("../../../shared/josefin/JosefinSans-Regular.ttf");
 }
 
 .headerContainer {
@@ -13,6 +13,7 @@
     border: black 0.25rem solid;
     border-top: none;
     font-family: josefin-regular;
+    box-sizing: border-box;
 }
 
 .name {

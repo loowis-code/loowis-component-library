@@ -33,6 +33,7 @@
     "devDependencies": {
         "@babel/preset-env": "^7.26.9",
         "@babel/preset-react": "^7.26.3",
+        "@storybook/addon-console": "^3.0.0",
         "@storybook/addon-essentials": "^8.6.3",
         "@storybook/addon-onboarding": "^8.6.3",
         "@storybook/blocks": "^8.6.3",
