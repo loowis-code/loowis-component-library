@@ -24,19 +24,19 @@ export default function Header(props: HeaderProps) {
     }, []); 
 
     return (
-        <div className='headerContainer'>
+        <div className='headerContainer' data-testid='header'>
             <h1 className='name' id='name'>
-                <Link className='letter' href='/'>L</Link>
-                <Link className='letter' href='/'>O</Link>
-                <Link className='letter' href='/'>O</Link>
-                <Link className='letter' href='/'>W</Link>
-                <Link className='letter' href='/'>I</Link>
-                <Link className='letter' href='/'>S</Link>
+                <Link className='letter' data-testid='letter' href='/'>L</Link>
+                <Link className='letter' data-testid='letter' href='/'>O</Link>
+                <Link className='letter' data-testid='letter' href='/'>O</Link>
+                <Link className='letter' data-testid='letter' href='/'>W</Link>
+                <Link className='letter' data-testid='letter' href='/'>I</Link>
+                <Link className='letter' data-testid='letter' href='/'>S</Link>
             </h1>
 
             <nav className='navTabs'>
                 {props.navTabs.map((tab, index) => (
-                    <Link key={index} href={props.navLinks[index]} className='navTab'>{tab}</Link>
+                    <Link key={index} href={props.navLinks[index]} className='navTab' data-testid='navTab'>{tab}</Link>
                 ))}
             </nav>
         </div>
