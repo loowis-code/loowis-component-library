@@ -7,6 +7,7 @@ This repository is a collection of components I use in my personal websites. I c
 ## What components are available?
 
 - Header
+- Button
 
 ## How do I use it?
 
