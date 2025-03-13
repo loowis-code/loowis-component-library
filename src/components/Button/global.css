@@ -3,6 +3,10 @@
     src: url("../../../shared/josefin/JosefinSans-Regular.ttf");
 }
 
+* {
+    --buttonBoxShadowHover: #ffdb58;
+}
+
 .button {
     width: 10rem;
     text-align: center;
@@ -24,6 +28,13 @@
 	cursor: pointer;
 }
 
+.button:hover {
+    animation: 0.5s shiver;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0.25rem 0.25rem var(--buttonBoxShadowHover);
+}
+
 .buttonLink {
     width: 10rem;
     text-align: center;
@@ -40,4 +51,11 @@
     font-size: 1rem;
     box-shadow: 0.25rem 0.25rem black;
     font-family: josefin-regular;
+}
+
+.buttonLink:hover {
+    animation: 0.5s shiver;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0.25rem 0.25rem var(--buttonBoxShadowHover);
 }

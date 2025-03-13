@@ -69,6 +69,7 @@ exports[`Header renders correctly 1`] = `
             class="buttonLink"
             data-testid="button"
             href="/testString"
+            style="--buttonBoxShadowHover: #d95d5d;"
           >
             testString
           </a>
@@ -141,6 +142,7 @@ exports[`Header renders correctly 1`] = `
           class="buttonLink"
           data-testid="button"
           href="/testString"
+          style="--buttonBoxShadowHover: #d95d5d;"
         >
           testString
         </a>
