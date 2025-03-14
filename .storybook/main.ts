@@ -6,6 +6,7 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-console",
   ],
+  staticDirs: ["../public"],
   framework: "@storybook/nextjs",
   docs: {
     autodocs: "tag",

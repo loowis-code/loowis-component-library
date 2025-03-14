@@ -1,0 +1,43 @@
+@font-face {
+    font-family: josefin-regular;
+    src: url("../../../shared/josefin/JosefinSans-Regular.ttf");
+}
+
+.polaroidFrame {
+    background-color: #fff;
+    padding: 2rem 1rem 2.5rem;
+    width: 20rem;
+    height: auto;
+    text-align: left;
+    border: 0.25rem solid #000;
+    box-shadow: 0.25rem 0.25rem #000;
+    padding-bottom: 5rem;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.polaroidImage {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.polaroidLinks {
+    display: flex;
+}
+
+.polaroidName {
+    background-color: #ffdb58;
+    border: #e6c44c 0.25rem solid;
+    box-shadow: #e6c44c 0.25rem 0.25rem;
+    width: fit-content;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    font-family: josefin-regular;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}

@@ -18,9 +18,9 @@ export default function Header(props: HeaderProps) {
             (letter as HTMLElement).style.backgroundColor = colors[index];
         });
 
-        let navTabs = document.getElementsByClassName('navTab');
+        let navTabs = document.getElementsByClassName('buttonLink');
         for (let i = 0; i < navTabs.length; i++) {
-            (navTabs[i] as HTMLElement).style.setProperty('--navTabBoxShadowHover', colors[i]);
+            (navTabs[i] as HTMLElement).style.setProperty('--buttonBoxShadowHover', colors[i]);
         }
     }, []); 
 
