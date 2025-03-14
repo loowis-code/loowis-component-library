@@ -8,6 +8,7 @@ This repository is a collection of components I use in my personal websites. I c
 
 - Header
 - Button
+- Polaroid
 
 ## How do I use it?
 
@@ -23,7 +24,7 @@ Add the import for the library's CSS at the top level of your JSX e.g in your _a
 
 ### Step 3
 
-Import and use whatver component you wish
+Import and use whatever component you wish
 
 `import { Header } from 'loowis-component-library'`
 
