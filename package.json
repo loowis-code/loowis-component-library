@@ -1,6 +1,6 @@
 {
     "name": "loowis-component-library",
-    "version": "4.2.1",
+    "version": "4.2.2",
     "description": "Component library used for my personal websites",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
