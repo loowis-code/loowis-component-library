@@ -42,7 +42,7 @@ export default function Header(props: HeaderProps) {
                         type='search'
                         className='searchInput'
                         onChange={(e) => { searchTerm.current = (e.target as HTMLInputElement).value; }}
-                    ></input>
+                    />
                     <button type='submit' className='searchSubmit'>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
