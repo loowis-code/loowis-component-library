@@ -14,6 +14,9 @@ export const photographyWebsite: Story = {
     args: {
         navTabs: ['ALL IMAGES', 'COLLECTIONS', 'IMAGE MAP'],
         navLinks: ['/all-images', '/collections', '/image-map'],
+        handleSearch: (query: string) => {
+            console.log(`Searching for: ${query}`);
+        }
     }
 };
 
