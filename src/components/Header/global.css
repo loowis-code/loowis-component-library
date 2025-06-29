@@ -86,10 +86,6 @@
 .navTabs {
     display: flex;
     align-items: center;
-}
-
-.navTabs {
-    display: flex;
     position: absolute;
     margin: auto;
     right: 0;

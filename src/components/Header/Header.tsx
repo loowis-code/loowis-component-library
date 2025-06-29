@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import './global.css';
 import Button from '../Button';
 
@@ -25,11 +25,12 @@ export default function Header(props: HeaderProps) {
         }
     }, []); 
 
+    const searchTerm = useRef<string>('');
+
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const input = e.currentTarget.querySelector('.searchInput') as HTMLInputElement;
         if (props.handleSearch) {
-            props.handleSearch(input.value);
+            props.handleSearch(searchTerm.current);
         }
     };
 
@@ -37,7 +38,11 @@ export default function Header(props: HeaderProps) {
         <div className='headerContainer' data-testid='header'>
             {props.handleSearch && 
                 <form className='searchBar' onSubmit={handleSearch} >
-                    <input type='search' className='searchInput'></input>
+                    <input
+                        type='search'
+                        className='searchInput'
+                        onInput={(e) => { searchTerm.current = (e.target as HTMLInputElement).value; }}
+                    ></input>
                     <button type='submit' className='searchSubmit'>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
