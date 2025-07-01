@@ -1,11 +1,12 @@
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import './global.css';
 import Button from '../Button';
 
 type HeaderProps = {
     navTabs: string[];
     navLinks: string[];
+    handleSearch?: (query: string) => void;
 };
 
 export default function Header(props: HeaderProps) {
@@ -24,8 +25,42 @@ export default function Header(props: HeaderProps) {
         }
     }, []); 
 
+    const searchTerm = useRef<string>('');
+
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (props.handleSearch) {
+            props.handleSearch(searchTerm.current);
+        }
+    };
+
     return (
         <div className='headerContainer' data-testid='header'>
+            {props.handleSearch && 
+                <form className='searchBar' onSubmit={handleSearch} >
+                    <input
+                        type='search'
+                        className='searchInput'
+                        onChange={(e) => { searchTerm.current = (e.target as HTMLInputElement).value; }}
+                    />
+                    <button type='submit' className='searchSubmit'>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={24}
+                            height={24}
+                            fill="none"
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                        >
+                            <circle cx={11} cy={11} r={8} />
+                            <path d="m21 21-4.35-4.35" />
+                        </svg>
+                    </button>
+                </form>
+            }
+
             <h1 className='name' id='name'>
                 <Link className='letter' data-testid='letter' href='/'>L</Link>
                 <Link className='letter' data-testid='letter' href='/'>O</Link>

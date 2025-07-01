@@ -7,7 +7,7 @@
     padding: 1rem;
     text-decoration: none;
     display: flex;
-    justify-content: space-between;
+    position: relative;
     width: 75%;
     margin: 0 auto;
     border: black 0.25rem solid;
@@ -16,9 +16,46 @@
     box-sizing: border-box;
 }
 
+.searchBar {
+    display: flex;
+    border: black 0.25rem solid;
+    box-shadow: 0.25rem 0.25rem #000;
+    height: fit-content;
+    margin: 0.5rem;
+    position: absolute;
+    left: 0;
+}
+
+.searchBar:hover {
+    box-shadow: 0.25rem 0.25rem #d95d5d;
+}
+
+.searchInput {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-family: josefin-regular;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    background-color: transparent;
+}
+
+.searchSubmit {
+    margin-left: 0.5rem;
+    border: none;
+    border-left: #000 0.25rem solid;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: josefin-regular;
+    padding: 1rem;
+}
+
 .name {
     display: flex;
+    position: relative;
     cursor: default;
+    margin: auto;
 }
 
 .letter {
@@ -29,7 +66,7 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    color: whitesmoke;
+    color: white;
     background-color: #d95d5d;
     border: black 0.25rem solid;
     font-weight: bold;
@@ -42,12 +79,16 @@
 .letter:hover {
     animation: 0.5s shiver;
     text-decoration: none;
-    color: whitesmoke;
+    text-shadow: 0.1rem 0.1rem #000;  
+    color: white;
 }
 
 .navTabs {
     display: flex;
     align-items: center;
+    position: absolute;
+    margin: auto;
+    right: 0;
 }
 
 @keyframes shiver {
@@ -60,6 +101,17 @@
 @media (width <= 1320px) {
     .headerContainer {
         width: 100%;
+    }
+
+    .searchBar {
+        display: none;
+    }
+
+    .navTabs {
+        display: flex;
+        align-items: center;
+        position: static;
+        margin: 0;
     }
 }
 
