@@ -21,7 +21,7 @@
     margin: 0.5rem;
     border: black 0.25rem solid;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.75rem;
     box-shadow: 0.25rem 0.25rem black;
     font-family: josefin-regular;
     background-color: transparent;
@@ -36,7 +36,6 @@
 }
 
 .buttonLink {
-    width: 10rem;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -48,7 +47,7 @@
     margin: 0.5rem;
     border: black 0.25rem solid;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.75rem;
     box-shadow: 0.25rem 0.25rem black;
     font-family: josefin-regular;
 }

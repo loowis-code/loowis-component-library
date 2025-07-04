@@ -60,3 +60,41 @@ export const NineBySixteenWithoutCaption: Story = {
         filename: '/portrait.webp',
     }
 };
+
+export const SixteenByNineWithCaptionandLinksContainerised: Story = {
+    args: {
+        filename: '/landscape.png',
+        // caption: 'Lewis Inches',
+        links: [
+            { href: '/link1', text: 'Link 1' },
+            // { href: '/link2', text: 'Link 2' },
+            // { href: '/link3', text: 'Link 3' },
+        ],
+    },
+    render: (args) => {
+        return (
+            <div style={{ width: '50rem', height: '40rem'}}>
+                <Polaroid {...args} />
+            </div>
+        );
+    }
+};
+
+export const SquareWithCaptionAndLinksContainerised: Story = {
+    args: {
+        filename: '/picture.jpg',
+        caption: 'Lewis Inches',
+        links: [
+            { href: '/link1', text: 'Link 1' },
+            { href: '/link2', text: 'Link 2' },
+            { href: '/link3', text: 'Link 3' },
+        ],
+    },
+    render: (args) => {
+        return (
+            <div style={{ width: '50rem', height: '40rem'}}>
+                <Polaroid {...args} />
+            </div>
+        );
+    }
+};

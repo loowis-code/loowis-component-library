@@ -3,41 +3,52 @@
     src: url("../../../shared/josefin/JosefinSans-Regular.ttf");
 }
 
-.polaroidFrame {
+.polaroidContainer {
+    border: black 0.25rem solid;
+    box-shadow: 0.25rem 0.25rem black;
+    transition: 0.3s;
+    font-family: josefin-regular;
+    max-height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: fit-content;
+    height: 100%;
+    display: flex;
     background-color: #fff;
-    padding: 2rem 1rem 2.5rem;
-    width: 20rem;
-    height: auto;
-    text-align: left;
-    border: 0.25rem solid #000;
-    box-shadow: 0.25rem 0.25rem #000;
-    padding-bottom: 5rem;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
-.polaroidImage {
-    width: auto;
-    max-width: 100%;
-    height: auto;
+.polaroid {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1 1 auto;
+    padding: 0;
+    background-color: #fff;
+    margin: 0;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0.5rem;
+    box-sizing: border-box;
 }
 
 .polaroidLinks {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
 }
 
 .polaroidName {
+    padding: 0.5rem;
+    font-family: josefin-regular;
     background-color: #ffdb58;
     border: #e6c44c 0.25rem solid;
     box-shadow: #e6c44c 0.25rem 0.25rem;
     width: fit-content;
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    font-family: josefin-regular;
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0 auto 0.5rem auto;
 }

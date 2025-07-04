@@ -1,5 +1,4 @@
 import './global.css';
-import Image from 'next/image';
 import Button from '../Button';
 
 type PolaroidProps = {
@@ -11,8 +10,9 @@ type PolaroidProps = {
 
 export default function Polaroid(props: PolaroidProps) {
     return (
-        <figure className='polaroidFrame' data-testid='polaroid'>
-                <Image src={props.filename} alt={props.alt} className='polaroidImage' height={300} width={300}/>
+        <article className='polaroidContainer' data-testid='polaroid'>
+            <div className='polaroid'>
+                <img src={props.filename} alt={props.alt} className='image'/>
                 {props.links && 
                     <div className='polaroidLinks'>
                         {props.links.map((link, index) => (
@@ -20,9 +20,8 @@ export default function Polaroid(props: PolaroidProps) {
                         ))}
                     </div>
                 }
-                {props.caption && <figcaption className='polaroidName'>{props.caption}</figcaption>}
-
-
-        </figure>
+                {props.caption && <p className='polaroidName'>{props.caption}</p>}  
+            </div>
+        </article>
     );
 }
