@@ -5,73 +5,73 @@ exports[`Header renders correctly 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <figure
-        class="polaroidFrame"
-        data-testid="polaroid"
+      <div
+        class="imageContainer"
       >
         <img
-          class="polaroidImage"
-          data-nimg="1"
-          decoding="async"
-          height="300"
-          loading="lazy"
-          src="/_next/image?url=%2Fpicture.jpg&w=640&q=75"
-          srcset="/_next/image?url=%2Fpicture.jpg&w=384&q=75 1x, /_next/image?url=%2Fpicture.jpg&w=640&q=75 2x"
-          style="color: transparent;"
-          width="300"
+          class="image"
+          src="/picture.jpg"
         />
         <div
-          class="polaroidLinks"
+          class="description"
         >
-          <a
-            class="buttonLink"
-            data-testid="button"
-            href="test-link"
+          <div
+            class="descriptionHeader"
           >
-            Test Link
-          </a>
+            <div
+              class="buttonContainer"
+            >
+              <a
+                class="buttonLink"
+                data-testid="button"
+                href="test-link"
+              >
+                Test Link
+              </a>
+            </div>
+          </div>
+          <p
+            class="caption"
+          >
+            Test Caption
+          </p>
         </div>
-        <figcaption
-          class="polaroidName"
-        >
-          Test Caption
-        </figcaption>
-      </figure>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <figure
-      class="polaroidFrame"
-      data-testid="polaroid"
+    <div
+      class="imageContainer"
     >
       <img
-        class="polaroidImage"
-        data-nimg="1"
-        decoding="async"
-        height="300"
-        loading="lazy"
-        src="/_next/image?url=%2Fpicture.jpg&w=640&q=75"
-        srcset="/_next/image?url=%2Fpicture.jpg&w=384&q=75 1x, /_next/image?url=%2Fpicture.jpg&w=640&q=75 2x"
-        style="color: transparent;"
-        width="300"
+        class="image"
+        src="/picture.jpg"
       />
       <div
-        class="polaroidLinks"
+        class="description"
       >
-        <a
-          class="buttonLink"
-          data-testid="button"
-          href="test-link"
+        <div
+          class="descriptionHeader"
         >
-          Test Link
-        </a>
+          <div
+            class="buttonContainer"
+          >
+            <a
+              class="buttonLink"
+              data-testid="button"
+              href="test-link"
+            >
+              Test Link
+            </a>
+          </div>
+        </div>
+        <p
+          class="caption"
+        >
+          Test Caption
+        </p>
       </div>
-      <figcaption
-        class="polaroidName"
-      >
-        Test Caption
-      </figcaption>
-    </figure>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -132,41 +132,39 @@ exports[`Header renders correctly without caption and links 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <figure
-        class="polaroidFrame"
-        data-testid="polaroid"
+      <div
+        class="imageContainer"
       >
         <img
-          class="polaroidImage"
-          data-nimg="1"
-          decoding="async"
-          height="300"
-          loading="lazy"
-          src="/_next/image?url=%2Fpicture.jpg&w=640&q=75"
-          srcset="/_next/image?url=%2Fpicture.jpg&w=384&q=75 1x, /_next/image?url=%2Fpicture.jpg&w=640&q=75 2x"
-          style="color: transparent;"
-          width="300"
+          class="image"
+          src="/picture.jpg"
         />
-      </figure>
+        <div
+          class="description"
+        >
+          <div
+            class="descriptionHeader"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <figure
-      class="polaroidFrame"
-      data-testid="polaroid"
+    <div
+      class="imageContainer"
     >
       <img
-        class="polaroidImage"
-        data-nimg="1"
-        decoding="async"
-        height="300"
-        loading="lazy"
-        src="/_next/image?url=%2Fpicture.jpg&w=640&q=75"
-        srcset="/_next/image?url=%2Fpicture.jpg&w=384&q=75 1x, /_next/image?url=%2Fpicture.jpg&w=640&q=75 2x"
-        style="color: transparent;"
-        width="300"
+        class="image"
+        src="/picture.jpg"
       />
-    </figure>
+      <div
+        class="description"
+      >
+        <div
+          class="descriptionHeader"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -227,63 +225,63 @@ exports[`Header renders correctly without caption and with links 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <figure
-        class="polaroidFrame"
-        data-testid="polaroid"
+      <div
+        class="imageContainer"
       >
         <img
-          class="polaroidImage"
-          data-nimg="1"
-          decoding="async"
-          height="300"
-          loading="lazy"
-          src="/_next/image?url=%2Fpicture.jpg&w=640&q=75"
-          srcset="/_next/image?url=%2Fpicture.jpg&w=384&q=75 1x, /_next/image?url=%2Fpicture.jpg&w=640&q=75 2x"
-          style="color: transparent;"
-          width="300"
+          class="image"
+          src="/picture.jpg"
         />
         <div
-          class="polaroidLinks"
+          class="description"
         >
-          <a
-            class="buttonLink"
-            data-testid="button"
-            href="test-link"
+          <div
+            class="descriptionHeader"
           >
-            Test Link
-          </a>
+            <div
+              class="buttonContainer"
+            >
+              <a
+                class="buttonLink"
+                data-testid="button"
+                href="test-link"
+              >
+                Test Link
+              </a>
+            </div>
+          </div>
         </div>
-      </figure>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <figure
-      class="polaroidFrame"
-      data-testid="polaroid"
+    <div
+      class="imageContainer"
     >
       <img
-        class="polaroidImage"
-        data-nimg="1"
-        decoding="async"
-        height="300"
-        loading="lazy"
-        src="/_next/image?url=%2Fpicture.jpg&w=640&q=75"
-        srcset="/_next/image?url=%2Fpicture.jpg&w=384&q=75 1x, /_next/image?url=%2Fpicture.jpg&w=640&q=75 2x"
-        style="color: transparent;"
-        width="300"
+        class="image"
+        src="/picture.jpg"
       />
       <div
-        class="polaroidLinks"
+        class="description"
       >
-        <a
-          class="buttonLink"
-          data-testid="button"
-          href="test-link"
+        <div
+          class="descriptionHeader"
         >
-          Test Link
-        </a>
+          <div
+            class="buttonContainer"
+          >
+            <a
+              class="buttonLink"
+              data-testid="button"
+              href="test-link"
+            >
+              Test Link
+            </a>
+          </div>
+        </div>
       </div>
-    </figure>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -344,51 +342,49 @@ exports[`Header renders correctly without links 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <figure
-        class="polaroidFrame"
-        data-testid="polaroid"
+      <div
+        class="imageContainer"
       >
         <img
-          class="polaroidImage"
-          data-nimg="1"
-          decoding="async"
-          height="300"
-          loading="lazy"
-          src="/_next/image?url=%2Fpicture.jpg&w=640&q=75"
-          srcset="/_next/image?url=%2Fpicture.jpg&w=384&q=75 1x, /_next/image?url=%2Fpicture.jpg&w=640&q=75 2x"
-          style="color: transparent;"
-          width="300"
+          class="image"
+          src="/picture.jpg"
         />
-        <figcaption
-          class="polaroidName"
+        <div
+          class="description"
         >
-          Test Caption
-        </figcaption>
-      </figure>
+          <div
+            class="descriptionHeader"
+          />
+          <p
+            class="caption"
+          >
+            Test Caption
+          </p>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <figure
-      class="polaroidFrame"
-      data-testid="polaroid"
+    <div
+      class="imageContainer"
     >
       <img
-        class="polaroidImage"
-        data-nimg="1"
-        decoding="async"
-        height="300"
-        loading="lazy"
-        src="/_next/image?url=%2Fpicture.jpg&w=640&q=75"
-        srcset="/_next/image?url=%2Fpicture.jpg&w=384&q=75 1x, /_next/image?url=%2Fpicture.jpg&w=640&q=75 2x"
-        style="color: transparent;"
-        width="300"
+        class="image"
+        src="/picture.jpg"
       />
-      <figcaption
-        class="polaroidName"
+      <div
+        class="description"
       >
-        Test Caption
-      </figcaption>
-    </figure>
+        <div
+          class="descriptionHeader"
+        />
+        <p
+          class="caption"
+        >
+          Test Caption
+        </p>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
