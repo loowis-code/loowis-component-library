@@ -23,6 +23,7 @@ export const photographyWebsite: Story = {
 export const portfolioWebsite: Story = {
     args: {
         navTabs: ['HOME', 'ABOUT ME', 'PROJECTS'],
-        navLinks: ['', '#about-me', '#image-map'],
+        navLinks: ['/', '#about-me', '#image-map'],
     }
+    
 };

@@ -64,26 +64,8 @@ export const NineBySixteenWithoutCaption: Story = {
 export const SixteenByNineWithCaptionandLinksContainerised: Story = {
     args: {
         filename: '/landscape.png',
-        // caption: 'Lewis Inches',
-        links: [
-            { href: '/link1', text: 'Link 1' },
-            // { href: '/link2', text: 'Link 2' },
-            // { href: '/link3', text: 'Link 3' },
-        ],
-    },
-    render: (args) => {
-        return (
-            <div style={{ width: '50rem', height: '40rem'}}>
-                <Polaroid {...args} />
-            </div>
-        );
-    }
-};
-
-export const SquareWithCaptionAndLinksContainerised: Story = {
-    args: {
-        filename: '/picture.jpg',
-        caption: 'Lewis Inches',
+        title: 'Lewis Inches',
+        caption: 'A beautiful landscape',
         links: [
             { href: '/link1', text: 'Link 1' },
             { href: '/link2', text: 'Link 2' },
@@ -92,7 +74,27 @@ export const SquareWithCaptionAndLinksContainerised: Story = {
     },
     render: (args) => {
         return (
-            <div style={{ width: '50rem', height: '40rem'}}>
+            <div style={{ width: '400px', height: '400px', border: '10px solid red' }}>
+                <Polaroid {...args} />
+            </div>
+        );
+    }
+};
+
+export const SquareWithCaptionAndLinksContainerised: Story = {
+    args: {
+        filename: '/picture2.jpg',
+        title: 'Lewis Inches',
+        caption: 'A beautiful square image',
+        links: [
+            { href: '/link1', text: 'Link 1' },
+            { href: '/link2', text: 'Link 2' },
+            { href: '/link3', text: 'Link 3' },
+        ],
+    },
+    render: (args) => {
+        return (
+            <div style={{ width: '650px', height: '400px', border: '10px solid red' }}>
                 <Polaroid {...args} />
             </div>
         );

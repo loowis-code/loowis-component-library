@@ -4,24 +4,37 @@ import Button from '../Button';
 type PolaroidProps = {
     filename: string;
     alt?: string;
+    title?: string;
     caption?: string;
     links?: { href: string, text: string }[];
 };
 
 export default function Polaroid(props: PolaroidProps) {
     return (
-        <article className='polaroidContainer' data-testid='polaroid'>
-            <div className='polaroid'>
-                <img src={props.filename} alt={props.alt} className='image'/>
-                {props.links && 
-                    <div className='polaroidLinks'>
-                        {props.links.map((link, index) => (
-                            <Button key={index} buttonLink={link.href} buttonText={link.text}/>
-                        ))}
-                    </div>
-                }
-                {props.caption && <p className='polaroidName'>{props.caption}</p>}  
+        <div className='imageContainer'>
+            <img
+                src={props.filename}
+                alt={props.alt}
+                className='image'
+            />
+            <div className='description'>
+                <div className='descriptionHeader'>
+                    {props.title && <h5 className='thumbnailTitle'>{props.title}</h5>}
+                    {props.links && props.links.length > 0 && (
+                        <div className='buttonContainer'>
+                            {props.links.map((link, index) => (
+                                <Button
+                                    key={index}
+                                    buttonText={link.text}
+                                    buttonLink={link.href}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </div>
+
+                {props.caption && <p className='caption'>{props.caption}</p>}
             </div>
-        </article>
+        </div>
     );
 }

@@ -4,8 +4,8 @@ import './global.css';
 import Button from '../Button';
 
 type HeaderProps = {
-    navTabs: string[];
-    navLinks: string[];
+    navTabs?: string[];
+    navLinks?: string[];
     handleSearch?: (query: string) => void;
 };
 
@@ -71,7 +71,7 @@ export default function Header(props: HeaderProps) {
             </h1>
 
             <nav className='navTabs'>
-                {props.navTabs.map((tab, index) => (
+                {(props.navTabs && props.navLinks) && props.navTabs.map((tab, index) => (
                     <Button key={index} buttonLink={props.navLinks[index]} buttonText={tab}/>
                 ))}
             </nav>

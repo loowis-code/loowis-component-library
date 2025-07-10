@@ -1,54 +1,72 @@
 @font-face {
-    font-family: josefin-regular;
-    src: url("../../../shared/josefin/JosefinSans-Regular.ttf");
+    font-family: josefin-bold-italic;
+    src: url("../../../shared/josefin/JosefinSans-BoldItalic.ttf");
 }
 
-.polaroidContainer {
+.imageContainer {
     border: black 0.25rem solid;
+    border-radius: 0.5%;
     box-shadow: 0.25rem 0.25rem black;
-    transition: 0.3s;
-    font-family: josefin-regular;
-    max-height: 100%;
+    background-color: #fff;
+    text-align: center;
     box-sizing: border-box;
-    overflow: hidden;
-    width: fit-content;
+    width: 100%;
     height: 100%;
     display: flex;
-    background-color: #fff;
-}
-
-.polaroid {
-    display: flex;
     flex-direction: column;
-    text-align: center;
-    flex: 1 1 auto;
-    padding: 0;
-    background-color: #fff;
-    margin: 0;
+    overflow: hidden;
 }
 
 .image {
+    max-width: 100%;
     width: 100%;
-    height: 100%;
+    flex: 1 1 0;
     object-fit: cover;
-    padding: 0.5rem;
-    box-sizing: border-box;
+    min-height: 0;
 }
 
-.polaroidLinks {
+.description {
+    font-size: large;
+    font-family: josefin-bold-italic;
+    background-color: #F5B6F6;
+    margin: 0;
+    padding: 0.5rem;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    background-color: #fff;
+    align-items: center;
+    flex: 0 0 auto;
+    min-height: 0;
 }
 
-.polaroidName {
-    padding: 0.5rem;
+.descriptionHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-wrap: wrap;
+    
+}
+
+.thumbnailTitle {
+    font-size: xx-large;
+    font-family: josefin-bold-italic;
+    margin: auto;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.caption {
+    display: flex;
+    justify-content: center;
+    font-size: medium;
     font-family: josefin-regular;
-    background-color: #ffdb58;
-    border: #e6c44c 0.25rem solid;
-    box-shadow: #e6c44c 0.25rem 0.25rem;
-    width: fit-content;
-    margin: 0 auto 0.5rem auto;
+    text-align: center;
+    margin: 0;
+    padding-top: 0.5rem;
 }

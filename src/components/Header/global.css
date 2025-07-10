@@ -14,6 +14,8 @@
     border-top: none;
     font-family: josefin-regular;
     box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
 }
 
 .searchBar {
@@ -21,9 +23,11 @@
     border: black 0.25rem solid;
     box-shadow: 0.25rem 0.25rem #000;
     height: fit-content;
-    margin: 0.5rem;
+    margin: auto 0.5rem;
     position: absolute;
     left: 0;
+    top: 50%;
+    transform: translateY(-50%);;
 }
 
 .searchBar:hover {
@@ -55,7 +59,8 @@
     display: flex;
     position: relative;
     cursor: default;
-    margin: auto;
+    margin: 0 auto;
+    z-index: 1;
 }
 
 .letter {
@@ -85,10 +90,13 @@
 
 .navTabs {
     display: flex;
-    align-items: center;
+    flex: none;
+    justify-content: flex-end;
     position: absolute;
-    margin: auto;
     right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto 0.5rem;
 }
 
 @keyframes shiver {
@@ -98,7 +106,7 @@
     75% { transform: scale(0.95, 1.05); }
 }
 
-@media (width <= 1320px) {
+@media (width <= 1500px) {
     .headerContainer {
         width: 100%;
     }
@@ -107,25 +115,22 @@
         display: none;
     }
 
-    .navTabs {
-        display: flex;
-        align-items: center;
-        position: static;
-        margin: 0;
-    }
 }
 
-@media (width <= 1000px) {
+@media (width <= 1200px) {
     .headerContainer {
-        display: block;
+        flex-direction: column;
     }
 
     .navTabs {
+        position: static;
+        transform: none;
+        margin: 0.5rem 0;
+        width: 100%;
         justify-content: center;
     }
 
     .navTab {
-        font-size: smaller;
         aspect-ratio: 2/1;
     }
 
