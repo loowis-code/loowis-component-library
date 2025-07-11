@@ -130,10 +130,6 @@
         justify-content: center;
     }
 
-    .navTab {
-        aspect-ratio: 2/1;
-    }
-
     .name {
         justify-content: center;
         width: fit-content;
@@ -166,4 +162,13 @@
     .letter:hover {
         animation: none;
     }
+}
+
+@media (width <= 450px) {
+
+    .navTabs {
+        align-items: center;
+    }
+
+
 }
