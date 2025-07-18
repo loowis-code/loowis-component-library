@@ -14,6 +14,7 @@ export const Default: Story = {
     args: {
         buttonText: 'VIEW MORE',
         buttonLink: '/view-more',
+        disabled: true,
     }
 };
 
@@ -21,5 +22,6 @@ export const NoLink: Story = {
     args: {
         buttonText: 'VIEW MORE',
         clickHandler: () => console.log('Button clicked'),
+        disabled: true,
     }
 };
