@@ -81,8 +81,8 @@ exports[`Button renders correctly as a link 1`] = `
   "baseElement": <body>
     <div>
       <a
-        class="buttonLink"
-        data-testid="button"
+        class="button"
+        data-testid="link"
         href="/test"
       >
         TEST
@@ -91,8 +91,8 @@ exports[`Button renders correctly as a link 1`] = `
   </body>,
   "container": <div>
     <a
-      class="buttonLink"
-      data-testid="button"
+      class="button"
+      data-testid="link"
       href="/test"
     >
       TEST

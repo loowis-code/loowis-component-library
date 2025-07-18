@@ -5,19 +5,31 @@ type ButtonProps = {
     buttonText: string;
     buttonLink?: never;
     clickHandler: () => void;
+    disabled?: boolean;
 };
 
 type ButtonLinkProps = {
     buttonText: string;
     buttonLink: string;
     clickHandler?: never;
+    disabled?: boolean;
 }    
 
 export default function Button(props: ButtonProps | ButtonLinkProps) {
+    const { buttonText, buttonLink, clickHandler, disabled = false } = props;
     return (
         <>
-        {props.buttonLink && <Link className='buttonLink' data-testid='button' href={props.buttonLink}>{props.buttonText}</Link>}
-        {(!props.buttonLink && props.clickHandler) && <button className='button' onClick={props.clickHandler} data-testid='button'>{props.buttonText}</button>}
+        {buttonLink && <Link className={disabled ? 'disabled' : 'button'} data-testid='link' href={buttonLink}>{buttonText}</Link>}
+        {(!buttonLink && clickHandler) && (
+            <button
+                className={disabled ? 'disabled' : 'button'}
+                onClick={disabled ? undefined : clickHandler}
+                data-testid='button'
+                disabled={disabled}
+            >
+                {buttonText}
+            </button>
+        )}
         </>
     );
 }

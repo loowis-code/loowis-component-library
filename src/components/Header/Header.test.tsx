@@ -18,7 +18,7 @@ describe('Header', () => {
     it('should render the header with the correct number of tabs', () => {
         const { getByTestId, getAllByTestId, getByText } = render(<Header navTabs={['testString1', 'testString2']} navLinks={['/testString1', '/testString2']}/>);
         expect(getByTestId('header')).toBeInTheDocument();
-        expect(getAllByTestId('button').length).toEqual(2);
+        expect(getAllByTestId('link').length).toEqual(2);
         expect(getByText('testString1')).toBeInTheDocument();
         expect(getByText('testString2')).toBeInTheDocument();
     });
