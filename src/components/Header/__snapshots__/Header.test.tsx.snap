@@ -66,10 +66,9 @@ exports[`Header renders correctly 1`] = `
           class="navTabs"
         >
           <a
-            class="buttonLink"
-            data-testid="button"
+            class="button"
+            data-testid="link"
             href="/testString"
-            style="--buttonBoxShadowHover: #d95d5d;"
           >
             testString
           </a>
@@ -139,10 +138,9 @@ exports[`Header renders correctly 1`] = `
         class="navTabs"
       >
         <a
-          class="buttonLink"
-          data-testid="button"
+          class="button"
+          data-testid="link"
           href="/testString"
-          style="--buttonBoxShadowHover: #d95d5d;"
         >
           testString
         </a>

@@ -10,16 +10,18 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {
+export const ButtinWithLink: Story = {
     args: {
         buttonText: 'VIEW MORE',
         buttonLink: '/view-more',
+        disabled: true,
     }
 };
 
-export const NoLink: Story = {
+export const ButtonNoLink: Story = {
     args: {
         buttonText: 'VIEW MORE',
         clickHandler: () => console.log('Button clicked'),
+        disabled: true,
     }
 };
