@@ -1,7 +1,9 @@
-import Link from 'next/link';
+'use client';
+
 import { useEffect, useRef } from 'react';
 import './global.css';
 import Button from '../Button';
+import { useLinkComponent } from '../../context/LinkContext';
 
 type HeaderProps = {
     navTabs?: string[];
@@ -10,6 +12,8 @@ type HeaderProps = {
 };
 
 export default function Header(props: HeaderProps) {
+    const Link = useLinkComponent();
+
     useEffect(() => {
         let name = document.getElementById('name');
         if (!name) return;
