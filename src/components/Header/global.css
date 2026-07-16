@@ -106,7 +106,7 @@
     75% { transform: scale(0.95, 1.05); }
 }
 
-@media (width <= 1500px) {
+@media (--bp-lg) {
     .headerContainer {
         width: 100%;
     }
@@ -117,7 +117,7 @@
 
 }
 
-@media (width <= 1200px) {
+@media (--bp-md) {
     .headerContainer {
         flex-direction: column;
     }
@@ -164,7 +164,7 @@
     }
 }
 
-@media (width <= 450px) {
+@media (--bp-sm) {
 
     .navTabs {
         align-items: center;
