@@ -62,3 +62,15 @@ export default function App({ children }) {
 - `next` is **no longer a peer dependency** — you can remove it from `package.json` unless you use it directly elsewhere.
 - Links render as a plain `<a href>` by default instead of `next/link`. If you were relying on `next/link`'s client-side transitions, this is a **behaviour change**: navigation will silently fall back to full page reloads until you wrap your app in `LinkProvider` (see Step 4 above) with an adapter for your router.
 - No component props changed — `Button`/`Header`'s public API is otherwise unchanged.
+
+## Breakpoints
+
+Components use a shared set of pixel breakpoints for their responsive `@media` styles. These are exported so consuming apps can align their own layouts instead of hardcoding matching values:
+
+```js
+import { breakpoints } from 'loowis-component-library';
+
+// { lg: 1500, md: 1200, sm: 450 }
+```
+
+`src/tokens/breakpoints.ts` is the source of truth for this JS export. Component CSS references the same values directly as tokens (e.g. `@media (--bp-lg)`, resolved via PostCSS at build time) rather than hardcoding pixel values — see `src/tokens/breakpoints.css`.
