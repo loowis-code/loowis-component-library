@@ -1,5 +1,7 @@
-import Link from 'next/link';
+'use client';
+
 import './global.css';
+import { useLinkComponent } from '../../context/LinkContext';
 
 type ButtonProps = {
     buttonText: string;
@@ -11,9 +13,10 @@ type ButtonLinkProps = {
     buttonText: string;
     buttonLink: string;
     clickHandler?: never;
-}    
+}
 
 export default function Button(props: ButtonProps | ButtonLinkProps) {
+    const Link = useLinkComponent();
     return (
         <>
         {props.buttonLink && <Link className='buttonLink' data-testid='button' href={props.buttonLink}>{props.buttonText}</Link>}

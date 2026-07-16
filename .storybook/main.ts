@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/nextjs";
+import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
   stories: ["../src/components/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -7,7 +7,13 @@ const config: StorybookConfig = {
     "@storybook/addon-console",
   ],
   staticDirs: ["../public"],
-  framework: "@storybook/nextjs",
+  framework: "@storybook/react-vite",
+  core: {
+    disableTelemetry: true,
+  },
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+  },
   docs: {
     autodocs: "tag",
   },
