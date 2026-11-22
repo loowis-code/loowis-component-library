@@ -1,64 +1,141 @@
-# Loowis Component Library
+# Loowis Design System
 
-## What is this?
+Design tokens, theme layers, and accessible React primitives shared by Lewis's
+personal websites. The package is published as `loowis-component-library` to
+preserve the existing repository and npm release history.
 
-This repository is a collection of components I use in my personal websites. I created this library mainly as a way to learn about creating packages and release workflow but also to help bring a cohesive design language across all of my personal websites.
+> Version 5 is a clean break from the old component library. The old `Header`,
+> `Polaroid`, prop-based `Button`, `LinkProvider`, and `dist/index.css` API are
+> not part of the new design system.
 
-## What components are available?
+## Installation
 
-- Header
-- Button
-- Polaroid
+```sh
+npm install loowis-component-library
+```
 
-## How do I use it?
+Import the layers your application needs once at its root:
 
-### Step 1
+```ts
+import 'loowis-component-library/tokens.css';
+import 'loowis-component-library/theme.css';
+import 'loowis-component-library/fonts.css'; // optional
+import 'loowis-component-library/reset.css'; // optional
+import 'loowis-component-library/components.css';
+```
 
-`npm i loowis-component-library`
+Tokens can be used without React or any component styles.
 
-### Step 2
-
-Add the import for the library's CSS at the top level of your JSX e.g in your _app.js.
-
-`import 'loowis-component-library/dist/index.css';`
-
-### Step 3
-
-Import and use whatever component you wish
-
-`import { Header } from 'loowis-component-library'`
-
-`<Header />`
-
-### Step 4 (optional) — wire up your router
-
-`Header` and `Button` render links through an injectable `LinkProvider`. By default (no provider) they render a plain `<a href>`, which works everywhere but performs a full page navigation. If your app has a client-side router and you want in-app links to navigate without a full reload, wrap your app once in `LinkProvider`, passing an adapter that maps this library's `{ href, className, children, ...rest }` props onto your router's link component.
+## React primitives
 
 ```tsx
-import { LinkProvider } from 'loowis-component-library';
-import type { LinkComponentProps } from 'loowis-component-library';
+import {
+    Button,
+    ButtonLink,
+    PolaroidCard,
+    SearchField,
+    Surface,
+    Wordmark,
+} from 'loowis-component-library';
+```
 
-// Next.js
-import NextLink from 'next/link';
-const RouterLink = ({ href, children, ...rest }: LinkComponentProps) => (
-    <NextLink href={href} {...rest}>{children}</NextLink>
-);
+### Buttons
 
-// TanStack Router
+```tsx
+<Button variant="filled" onClick={save}>Save</Button>
+<Button disabled>Unavailable</Button>
+<Button loading loadingLabel="Saving">Save</Button>
+<ButtonLink href="/projects">Projects</ButtonLink>
+```
+
+Router-specific links are injected at the call site instead of through global
+context:
+
+```tsx
 import { Link as TanStackLink } from '@tanstack/react-router';
-const RouterLink = ({ href, children, ...rest }: LinkComponentProps) => (
-    <TanStackLink to={href} {...rest}>{children}</TanStackLink>
-);
 
-export default function App({ children }) {
-    return <LinkProvider component={RouterLink}>{children}</LinkProvider>;
+const RouterLink = ({ href, ...props }) => <TanStackLink to={href} {...props} />;
+
+<ButtonLink href="/collections" linkComponent={RouterLink}>
+    Collections
+</ButtonLink>
+```
+
+### Wordmark and search
+
+```tsx
+<header>
+    <Wordmark href="/" />
+    <SearchField onSearch={(query) => navigateToSearch(query)} />
+</header>
+```
+
+The design system intentionally does not provide a full site header. Each site
+owns its navigation, layout, and routing while composing the shared primitives.
+
+### Polaroid card
+
+```tsx
+<PolaroidCard
+    image={{ src: '/edinburgh.jpg', alt: 'Edinburgh skyline' }}
+    title="Edinburgh"
+    description="Photographed at sunset."
+    actions={<ButtonLink href="/photos/edinburgh">View photograph</ButtonLink>}
+/>
+```
+
+## Tokens
+
+CSS custom properties are namespaced with `--loowis-`:
+
+```css
+.project-panel {
+    padding: var(--loowis-space-5);
+    border: var(--loowis-border-width) solid var(--loowis-border-color);
+    background: var(--loowis-surface-background);
 }
 ```
 
-## Migrating to v5
+JavaScript-accessible values are available separately:
 
-`Header` and `Button` previously imported `next/link` directly, which meant every consumer needed `next` installed (as a peer dependency) even if they didn't use Next.js. As of v5:
+```ts
+import { breakpoints, colors, spacing, typography } from 'loowis-component-library/tokens';
+```
 
-- `next` is **no longer a peer dependency** — you can remove it from `package.json` unless you use it directly elsewhere.
-- Links render as a plain `<a href>` by default instead of `next/link`. If you were relying on `next/link`'s client-side transitions, this is a **behaviour change**: navigation will silently fall back to full page reloads until you wrap your app in `LinkProvider` (see Step 4 above) with an adapter for your router.
-- No component props changed — `Button`/`Header`'s public API is otherwise unchanged.
+Prefer semantic variables such as `--loowis-action-hover-background` in
+application and component styles.
+
+## Themes
+
+The default theme is applied through `theme.css`. Consumers can override
+semantic variables locally:
+
+```css
+[data-loowis-theme='photography'] {
+    --loowis-card-accent: var(--loowis-accent-blue);
+}
+```
+
+A cinema preset is available with `data-loowis-theme="cinema"`.
+
+## Development
+
+```sh
+npm install
+npm run check
+npm run build-storybook
+npm run pack:check
+```
+
+The implementation and migration sequence is documented in
+[`docs/design-system-v5-plan.md`](docs/design-system-v5-plan.md).
+Existing consumers should follow the
+[`v4 to v5 migration guide`](docs/migrating-v4-to-v5.md).
+
+## Release process
+
+1. Commit the intended version in `package.json` and `package-lock.json`.
+2. Ensure CI succeeds on that commit.
+3. Create a matching Git tag and GitHub Release, such as `v5.0.0-beta.1`.
+4. The release workflow checks out that exact tag and publishes prereleases to
+   npm `next` or stable releases to npm `latest`.
