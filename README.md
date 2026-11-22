@@ -136,6 +136,8 @@ Existing consumers should follow the
 
 1. Commit the intended version in `package.json` and `package-lock.json`.
 2. Ensure CI succeeds on that commit.
-3. Create a matching Git tag and GitHub Release, such as `v5.0.0-beta.1`.
+3. Create a matching Git tag and GitHub Release, such as `v5.0.0-beta.2`.
 4. The release workflow checks out that exact tag and publishes prereleases to
    npm `next` or stable releases to npm `latest`.
+5. npm authenticates the `publish.yml` workflow through Trusted Publishing;
+   no long-lived npm write token is used.

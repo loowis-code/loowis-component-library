@@ -13,16 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the released revision
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.event.release.tag_name }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20.x
+          node-version: 24.x
           registry-url: https://registry.npmjs.org
-          cache: npm
+          package-manager-cache: false
+
+      - name: Use an OIDC-capable npm version
+        run: npm install --global npm@^11.21.0
 
       - name: Install dependencies
         run: npm ci
@@ -45,12 +48,8 @@ jobs:
 
       - name: Publish prerelease to npm next
         if: ${{ github.event.release.prerelease }}
-        run: npm publish --access public --tag next --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --tag next
 
       - name: Publish stable release to npm latest
         if: ${{ !github.event.release.prerelease }}
-        run: npm publish --access public --tag latest --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --tag latest

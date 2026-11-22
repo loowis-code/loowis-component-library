@@ -164,7 +164,9 @@ Gate: a release always publishes the exact reviewed and tagged commit.
 
 ## Phase 8: Prerelease and consumer migrations
 
-Publish `v5.0.0-beta.1` to `next`, then migrate consumers in this order.
+Publish `v5.0.0-beta.2` to `next`, then migrate consumers in this order. The
+first beta validated the release pipeline but was not accepted by npm because
+token publishing was replaced with Trusted Publishing before publication.
 
 ### Cine Schedule
 
