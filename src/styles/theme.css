@@ -1,0 +1,19 @@
+:root,
+[data-loowis-theme="default"] {
+    --loowis-canvas-background: var(--loowis-color-paper);
+    --loowis-surface-background: var(--loowis-color-white);
+    --loowis-text-color: var(--loowis-color-ink);
+    --loowis-text-muted: var(--loowis-color-muted);
+    --loowis-border-color: var(--loowis-color-ink);
+    --loowis-shadow-color: var(--loowis-color-ink);
+    --loowis-action-background: transparent;
+    --loowis-action-hover-background: var(--loowis-accent-green);
+    --loowis-action-active-background: var(--loowis-accent-yellow);
+    --loowis-focus-color: var(--loowis-color-focus);
+    --loowis-card-accent: var(--loowis-accent-pink);
+}
+
+[data-loowis-theme="cinema"] {
+    --loowis-action-hover-background: var(--loowis-accent-yellow);
+    --loowis-action-active-background: var(--loowis-accent-blue);
+}

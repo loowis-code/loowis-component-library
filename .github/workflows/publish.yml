@@ -1,60 +1,56 @@
 name: Publish Package to npm
 
-# workflow triggered when release is published
 on:
   release:
     types: [published]
 
-# allows workflow to update version in package.json
 permissions:
-  contents: write
+  contents: read
+  id-token: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      # checkout code on main branch
-      - uses: actions/checkout@v4
+      - name: Check out the released revision
+        uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.event.repository.default_branch }}
+          ref: ${{ github.event.release.tag_name }}
 
-      # setup node
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: 20.x
+          registry-url: https://registry.npmjs.org
+          cache: npm
 
-      # install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # run tests
-    #   - name: Run tests
-    #     run: npm test
+      - name: Verify release tag matches package version
+        shell: bash
+        run: |
+          TAG="${{ github.event.release.tag_name }}"
+          VERSION="$(node -p "require('./package.json').version")"
+          if [ "${TAG#v}" != "$VERSION" ]; then
+            echo "Release tag $TAG does not match package version $VERSION"
+            exit 1
+          fi
 
-      # update package.json with release tag - defined in the release event
-      - name: Update package.json with release tag
-        run: |
-          TAG="${{ github.event.release.tag_name }}"
-          echo "Updating package.json version to $TAG"
-          npm version "$TAG" --no-git-tag-version
-          
-      # push updated packge.json to main branch
-      - name: Commit and push version update
-        run: |
-          TAG="${{ github.event.release.tag_name }}"
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add package.json package-lock.json
-          git commit -m "Update package.json to version $TAG"
-          git push origin ${{ github.event.repository.default_branch }}
+      - name: Verify package
+        run: npm run check
+
+      - name: Inspect package contents
+        run: npm run pack:check
+
+      - name: Publish prerelease to npm next
+        if: ${{ github.event.release.prerelease }}
+        run: npm publish --access public --tag next --provenance
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # publish to npm
-      - name: Publish to npm
-        run: npm publish --access public
+      - name: Publish stable release to npm latest
+        if: ${{ !github.event.release.prerelease }}
+        run: npm publish --access public --tag latest --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

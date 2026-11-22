@@ -1,11 +1,36 @@
 {
     "name": "loowis-component-library",
-    "version": "4.4.1",
-    "description": "Component library used for my personal websites",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "version": "5.0.0-beta.1",
+    "description": "Design tokens and React primitives for Loowis personal websites",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        },
+        "./tokens": {
+            "types": "./dist/src/tokens/index.d.ts",
+            "import": "./dist/src/tokens/index.mjs",
+            "require": "./dist/src/tokens/index.js"
+        },
+        "./tokens.css": "./dist/styles/tokens.css",
+        "./theme.css": "./dist/styles/theme.css",
+        "./reset.css": "./dist/styles/reset.css",
+        "./fonts.css": "./dist/styles/fonts.css",
+        "./components.css": "./dist/index.css"
+    },
+    "sideEffects": [
+        "**/*.css"
+    ],
     "scripts": {
-        "build": "tsup && node scripts/prepend-use-client.js",
+        "build": "tsup && node scripts/copy-static-assets.js",
+        "typecheck": "tsc --noEmit",
+        "check": "npm run typecheck && npm test -- --runInBand && npm run build && npm run package:check",
+        "package:check": "node scripts/check-package.js",
+        "pack:check": "npm run build && npm run package:check && npm pack --dry-run --cache .npm-cache",
         "test": "jest",
         "prepublishOnly": "npm run build",
         "storybook": "storybook dev -p 6006",
@@ -21,6 +46,9 @@
         "url": "https://github.com/loowis-code/loowis-component-library/issues"
     },
     "homepage": "https://github.com/loowis-code/loowis-component-library#readme",
+    "engines": {
+        "node": ">=20"
+    },
     "files": [
         "dist",
         "README.md"
@@ -29,10 +57,12 @@
         "react": ">=18.0.0",
         "react-dom": ">=18.0.0"
     },
+    "dependencies": {
+        "@fontsource/josefin-sans": "^5.2.6"
+    },
     "devDependencies": {
         "@babel/preset-env": "^7.26.9",
         "@babel/preset-react": "^7.26.3",
-        "@csstools/postcss-global-data": "^4.0.0",
         "@storybook/addon-console": "^3.0.0",
         "@storybook/addon-essentials": "8.6.18",
         "@storybook/addon-onboarding": "8.6.18",
@@ -49,7 +79,6 @@
         "jest": "^30.0.4",
         "jest-environment-jsdom": "^30.0.4",
         "postcss": "^8.5.19",
-        "postcss-custom-media": "^12.0.1",
         "storybook": "8.6.18",
         "ts-jest": "^29.2.6",
         "tsup": "^8.4.0",

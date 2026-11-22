@@ -3,12 +3,13 @@ import { join } from 'path';
 import { breakpoints } from './breakpoints';
 
 describe('breakpoints', () => {
-    it('keeps breakpoints.css @custom-media tokens in sync with breakpoints.ts', () => {
-        const css = readFileSync(join(__dirname, 'breakpoints.css'), 'utf8');
-        const matches = [...css.matchAll(/@custom-media\s+--bp-(\w+)\s+\(width\s*<=\s*(\d+)px\)/g)];
+    it('keeps CSS custom properties in sync with the TypeScript tokens', () => {
+        const css = readFileSync(join(__dirname, '..', 'styles', 'tokens.css'), 'utf8');
+        const matches = [...css.matchAll(/--loowis-breakpoint-(small|medium|large):\s*(\d+)px/g)];
+        const cssNameToToken = { small: 'sm', medium: 'md', large: 'lg' } as const;
 
         const tokensInCss = Object.fromEntries(
-            matches.map(([, name, value]) => [name, Number(value)])
+            matches.map(([, name, value]) => [cssNameToToken[name as keyof typeof cssNameToToken], Number(value)])
         );
 
         expect(tokensInCss).toEqual(breakpoints);
